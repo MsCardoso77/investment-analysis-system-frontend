@@ -1,9 +1,12 @@
 .footer {
   width: 100%;
   background-color: #111827;
+  
 }
 
 .footerText {
   color: #F9FAFB;
   text-align: center;
+  padding: 12px;
+  margin: 0;
 }

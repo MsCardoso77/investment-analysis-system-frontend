@@ -1,4 +1,5 @@
-// import { Table } from "react-bootstrap";
+import styles from "./CalculatorTable.module.css";
+import Table from "react-bootstrap/Table";
 
 import { useEffect, useState } from "react";
 
@@ -33,33 +34,36 @@ const CalculatorTable = ({ scenarios, investments }) => {
   }, [scenarios, investments]);
 
   return (
-    <>
+    <div className={styles.tableContainer}>
       {!!sceneInvestment.length && (
-        <table>
-          <tr>
-            <th></th>
-            {scenarios.data.map((scene) => (
-              <th>{scene}</th>
-            ))}
-          </tr>
-
-          {sceneInvestment.map((rows, index) => {
-            const data = rows.map((row) => (
-              <td>
-                <div contenteditable="true">{row.value}</div>
-              </td>
-            ));
-            const createTableRow = () => (
-              <tr>
-                <td>{investments.data[index]}</td>
-                {data}
-              </tr>
-            );
-            return createTableRow();
-          })}
-        </table>
+        <Table striped bordered hover size="sm" variant="dark">
+          <thead>
+            <tr>
+              <th></th>
+              {scenarios.data.map((scene) => (
+                <th>{scene}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sceneInvestment.map((rows, index) => {
+              const data = rows.map((row) => (
+                <td>
+                  <div contenteditable="true">{row.value}</div>
+                </td>
+              ));
+              const createTableRow = () => (
+                <tr>
+                  <td>{investments.data[index]}</td>
+                  {data}
+                </tr>
+              );
+              return createTableRow();
+            })}
+          </tbody>
+        </Table>
       )}
-    </>
+    </div>
   );
 };
 
