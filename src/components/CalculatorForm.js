@@ -1,29 +1,29 @@
 import styles from "./CalculatorForm.module.css";
 
-const CalculatorForm = ({ setNumberOfScenarios, setNumberOfInvestments }) => {
+const CalculatorForm = ({ setScenarios, setInvestments }) => {
   const makeScenarios = (e) => {
-    setNumberOfScenarios(e.target.value);
+    const data = e.target.value?.split(",")?.map((v) => v.trim());
+    setScenarios({ total: data.length, data });
   };
 
   const makeInvestments = (e) => {
-    setNumberOfInvestments(e.target.value);
+    const data = e.target.value?.split(",")?.map((v) => v.trim());
+    setInvestments({ total: data.length, data });
   };
 
   return (
     <>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
         <input
           className={styles.input}
-          type="number"
-          min="1"
-          placeholder="Quantidade de cenários"
+          type="string"
+          placeholder="Probabilidade dos cenários Ex: 12%, 25%..."
           onChange={makeScenarios}
         />
         <input
           className={styles.input}
-          type="number"
-          min="1"
-          placeholder="Quantidade de investimentos"
+          type="string"
+          placeholder="Investimetos Ex: Inv1, Inv2..."
           onChange={makeInvestments}
         />
         <input className={styles.button} type="submit" value="Gerar tabela" />

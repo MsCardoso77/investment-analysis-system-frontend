@@ -1,29 +1,66 @@
-import { Table } from "react-bootstrap";
+// import { Table } from "react-bootstrap";
 
-const CalculatorTable = ({numberOfScenarios, numberOfInvestments}) => {
-  console.log(numberOfScenarios)
-  console.log(numberOfInvestments)
+import { useEffect, useState } from "react";
+
+const CalculatorTable = ({ scenarios, investments }) => {
+  const [sceneInvestment, setSceneInvestment] = useState([]);
+
+  useEffect(() => {
+    // [[0,0,0], [0,0,0], [0,0,0]]
+    // Array();
+    if (investments?.data && scenarios?.data) {
+      const data = [];
+      investments.data.map((inv) => {
+        console.log("inv ->", inv);
+        if (inv) {
+          const rows = [];
+
+          scenarios.data.map((scene) => {
+            if (scene) {
+              console.log("scene ->", scene);
+              rows.push({
+                scene,
+                inv,
+                value: 0,
+              });
+            }
+          });
+          data.push(rows);
+        }
+      });
+      setSceneInvestment(data);
+    }
+  }, [scenarios, investments]);
+
   return (
     <>
-      <Table striped bordered>
-        <tbody>
-        {Array(numberOfInvestments).map(() => {
-          return (
-            <tr>
-            {Array(numberOfScenarios).map(() => {
-              return (
-                <td>TESTE</td>
-              )
-            }
-            )}
+      {!!sceneInvestment.length && (
+        <table>
+          <tr>
+            <th></th>
+            {scenarios.data.map((scene) => (
+              <th>{scene}</th>
+            ))}
           </tr>
-          )
-        }
-        )}
-        </tbody>
-      </Table>
-    </>
-  )
-}
 
-export default CalculatorTable
+          {sceneInvestment.map((rows, index) => {
+            const data = rows.map((row) => (
+              <td>
+                <div contenteditable="true">{row.value}</div>
+              </td>
+            ));
+            const createTableRow = () => (
+              <tr>
+                <td>{investments.data[index]}</td>
+                {data}
+              </tr>
+            );
+            return createTableRow();
+          })}
+        </table>
+      )}
+    </>
+  );
+};
+
+export default CalculatorTable;
