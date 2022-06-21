@@ -1,0 +1,12 @@
+.environmentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+h1 {
+  font-family: 'Poppins';
+  color: #d9d9d9;
+}
