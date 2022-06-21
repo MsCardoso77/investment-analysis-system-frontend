@@ -1,12 +1,18 @@
-import React from "react";
+import { React } from "react";
 import { useLocation } from "react-router-dom";
+import MakeEnvironment from "../../components/MakeEnvironment";
+
 
 const ShowSummary = () => {
   const { state } = useLocation();
 
-  console.log("data ->", state);
-
-  return <div>ShowSummary</div>;
-};
+  return (
+      <MakeEnvironment 
+        environment={state.environment}
+        data={state.tableResult}
+      />
+  )
+  
+}
 
 export default ShowSummary;
