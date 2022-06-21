@@ -4,8 +4,11 @@
   justify-content: space-between;
   min-height: 100vh;
   background-color: rgba(55, 65, 81, 1);
+  width: 100%;
+  margin: 0;
 }
 
-.container {
-  min-height: 60vh;
+.appContainer {
+  width: 100%;
+  margin: 0;
 }
