@@ -1,11 +1,12 @@
-import './App.css';
+import "./App.css";
 
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
-import Login from './pages/Login/Login';
-import Calculator from './pages/Calculator/Calculator';
-import Home from './pages/Home/Home';
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login/Login";
+import Calculator from "./pages/Calculator/Calculator";
+import Home from "./pages/Home/Home";
+import Summary from "./pages/ShowSummary/ShowSummary";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/calculator" element={<Calculator />} />
+            {/* Should need to enter with an unique id */}
+            <Route path="/summary" element={<Summary />} />
           </Routes>
         </div>
         <Footer />

@@ -2,15 +2,7 @@
   text-decoration: none;
 }
 
-.tableContainer{
+.tableContainer {
   padding-top: 5%;
   width: 50%;
-}
-
-th {
-  text-align: center;
-}
-
-td {
-  text-align: center;
 }
