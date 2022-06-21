@@ -2,9 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 const ShowSummary = () => {
-  const { state: tableResult } = useLocation();
+  const { state } = useLocation();
 
-  console.log("data ->", tableResult);
+  console.log("data ->", state);
 
   return <div>ShowSummary</div>;
 };

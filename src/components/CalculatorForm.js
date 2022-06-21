@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CalculatorForm.module.css";
 import CalculatorTable from "./CalculatorTable";
@@ -11,6 +11,7 @@ const CalculatorForm = ({
 }) => {
   const navigate = useNavigate();
   const investmentSceneData = useRef(null);
+  const [environment, setEnvironment] = useState("risco");
   const makeScenarios = (e) => {
     const data = e.target.value?.split(",")?.map((v) => v.trim());
     setScenarios({ total: data.length, data });
@@ -30,7 +31,7 @@ const CalculatorForm = ({
           console.log("onSubmit -> ", investmentSceneData);
           // need an id in future
           navigate("/summary", {
-            state: { tableResult: investmentSceneData.current },
+            state: { tableResult: investmentSceneData.current, environment },
           });
         }}
       >
@@ -46,17 +47,27 @@ const CalculatorForm = ({
           placeholder="Investimetos Ex: Inv1, Inv2..."
           onChange={makeInvestments}
         />
-        <div className="d-flex justify-content-center align-items-center">
+        <div
+          className="d-flex justify-content-center align-items-center"
+          onChange={(e) => setEnvironment(e.target.value)}
+        >
           <input
             type="radio"
             id="incerteza"
             name="environment"
             value="incerteza"
+            defaultCheck={environment === "incerteza"}
           />
           <label className="p-2" style={{ marginRight: "10px" }} for="html">
             Incerteza
           </label>
-          <input type="radio" id="risco" name="environment" value="risco" />
+          <input
+            type="radio"
+            id="risco"
+            name="environment"
+            value="risco"
+            defaultCheck={environment === "risco"}
+          />
           <label className="p-2" for="css">
             Risco
           </label>
