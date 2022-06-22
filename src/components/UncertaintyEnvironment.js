@@ -2,6 +2,8 @@ import Table from "react-bootstrap/Table";
 import styles from "./UncertaintyEnvironment.module.css";
 import MaxiMax from "./Calculations/MaxiMax";
 import MaxiMin from "./Calculations/MaxiMin";
+import LaPlace from "./Calculations/LaPlace";
+import Hurwicz from "./Calculations/Hurwicz";
 
 const UncertaintyEnvironment = ({data}) => {
 
@@ -26,8 +28,8 @@ const UncertaintyEnvironment = ({data}) => {
             <th className="text-center">Melhor Investimento</th>
             <td className="text-center"> <MaxiMax data={data} /> </td>
             <td className="text-center"> <MaxiMin data={data} /> </td>
-            <td className="text-center"></td>
-            <td className="text-center"></td>
+            <td className="text-center"> <LaPlace data={data} /> </td>
+            <td className="text-center"><Hurwicz data={data} /> </td>
             <td className="text-center"></td>
           </tr>
         </tbody>
