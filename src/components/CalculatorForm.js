@@ -58,7 +58,7 @@ const CalculatorForm = ({
             value="Incerteza"
             defaultCheck={environment === "Incerteza"}
           />
-          <label className="p-2" style={{ marginRight: "10px" }} for="html">
+          <label className="p-2" style={{ marginRight: "10px", color:"#d9d9d9" }} for="html">
             Incerteza
           </label>
           <input
@@ -68,7 +68,7 @@ const CalculatorForm = ({
             value="Risco"
             defaultCheck={environment === "Risco"}
           />
-          <label className="p-2" for="css">
+          <label className="p-2" for="css" style={{ marginRight: "10px", color:"#d9d9d9" }}>
             Risco
           </label>
         </div>
