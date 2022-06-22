@@ -13,10 +13,9 @@ const MaxiMax = ({data}) => {
           highestValue = investment.value
           setBestInvestment(investment.inv)
         } else if (highestValue === investment.value){
-          console.log(bestInvestment + ' ou ' + investment.inv)
+          //console.log(bestInvestment + ' ou ' + investment.inv)
         }
       })
-      console.log('Melhor valor da linha->', highestValue)
     })
   }, [data])
 
