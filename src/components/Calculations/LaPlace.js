@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 const LaPlace = ({data}) => {
 
   const [bestInvestment, setBestInvestment] = useState('')
+  const [bestValue, setBestValue] = useState('')
 
 
   useEffect(() => {
-    let bestRowAverage = 0;
+    let bestRowAverage = 0
     data.map((row) => {
       let totalRowValue = 0
       let currentInv = ''
@@ -17,16 +18,17 @@ const LaPlace = ({data}) => {
       if (bestRowAverage < totalRowValue/row.length) {
         bestRowAverage = totalRowValue/row.length
         //console.log("Maior média atual->", bestRowAverage)
+        tempBestInvestment = currentInv.inv
         setBestInvestment(currentInv)
-      } else if (bestRowAverage === totalRowValue/row.length) {
-        
+        setBestValue(bestRowAverage)
+      } else if (verify === true && bestRowAverage === totalRowValue/row.length) {
       }
       //console.log('Valor total da linha->', totalRowValue)
     })
   }, [data])
 
   return (
-    <>{bestInvestment}</>
+    <>{bestInvestment} ({bestValue})</>
   )
 }
 
