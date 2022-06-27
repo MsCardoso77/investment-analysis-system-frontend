@@ -18,10 +18,9 @@ const LaPlace = ({data}) => {
       if (bestRowAverage < totalRowValue/row.length) {
         bestRowAverage = totalRowValue/row.length
         //console.log("Maior média atual->", bestRowAverage)
-        tempBestInvestment = currentInv.inv
         setBestInvestment(currentInv)
         setBestValue(bestRowAverage)
-      } else if (verify === true && bestRowAverage === totalRowValue/row.length) {
+      } else if (bestRowAverage === totalRowValue/row.length) {
       }
       //console.log('Valor total da linha->', totalRowValue)
     })
