@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  color: #F9FAFB;
+  font-size: 36px;
+  padding-top: 5%;
+  padding-bottom: 2%; 
+}
