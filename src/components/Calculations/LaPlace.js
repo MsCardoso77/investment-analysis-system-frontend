@@ -7,7 +7,8 @@ const LaPlace = ({data}) => {
 
 
   useEffect(() => {
-    let bestRowAverage = 0
+    let bestRowAverage = -999999999999
+    let tempBestInvestment
     data.map((row) => {
       let totalRowValue = 0
       let currentInv = ''
@@ -20,7 +21,11 @@ const LaPlace = ({data}) => {
         //console.log("Maior média atual->", bestRowAverage)
         setBestInvestment(currentInv)
         setBestValue(bestRowAverage)
+        tempBestInvestment = currentInv
+        console.log('TEMP MELHORES',tempBestInvestment)
       } else if (bestRowAverage === totalRowValue/row.length) {
+        setBestInvestment(tempBestInvestment + ', ' + currentInv)
+        tempBestInvestment = tempBestInvestment + ', ' + currentInv      
       }
       //console.log('Valor total da linha->', totalRowValue)
     })

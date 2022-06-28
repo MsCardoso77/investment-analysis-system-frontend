@@ -19,7 +19,7 @@ const MiniMax = ({data}) => {
 
     let count2 = 0;
 
-    let miniMaxValue = 9999999;
+    let miniMaxValue = 999999999999;
 
     let currentInv
 
@@ -71,7 +71,7 @@ const MiniMax = ({data}) => {
     
     let tempBestInvestment
     transposedMatrix2.map((row, index) => {
-      let highestRowValue = -999999
+      let highestRowValue = -999999999999
       row.map((investment) => {
         if (highestRowValue < investment.value) {
           highestRowValue = investment.value

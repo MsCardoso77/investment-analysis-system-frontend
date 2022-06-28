@@ -11,7 +11,7 @@ const CalculatorForm = ({
 }) => {
   const navigate = useNavigate();
   const investmentSceneData = useRef(null);
-  const [environment, setEnvironment] = useState("Risco");
+  const [environment, setEnvironment] = useState("Incerteza");
   const makeScenarios = (e) => {
     const data = e.target.value?.split(",")?.map((v) => v.trim());
     setScenarios({ total: data.length, data });
@@ -56,6 +56,7 @@ const CalculatorForm = ({
             id="incerteza"
             name="environment"
             value="Incerteza"
+            checked
             defaultCheck={environment === "Incerteza"}
           />
           <label
@@ -70,7 +71,6 @@ const CalculatorForm = ({
             id="risco"
             name="environment"
             value="Risco"
-            checked
             defaultCheck={environment === "Risco"}
           />
           <label

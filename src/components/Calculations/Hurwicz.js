@@ -5,12 +5,12 @@ const Hurwicz = ({ data }) => {
   const[bestValue, setBestValue] = useState("");
 
   useEffect(() => {
-    let bestWeightedAverage = 0;
+    let tempBestInvestment
+    let bestWeightedAverage = -999999999999;
     data.map((row) => {
       let totalRowWeightedAverage = 0;
       let currentInv = "";
       row.map((investment) => {
-
         totalRowWeightedAverage +=
           (investment.value * parseFloat(investment.scene)) / 100;
 
@@ -19,9 +19,12 @@ const Hurwicz = ({ data }) => {
       if (bestWeightedAverage < totalRowWeightedAverage) {
         bestWeightedAverage = totalRowWeightedAverage;
         //console.log("Maior média ponderada atual->", bestWeightedAverage);
-        setBestInvestment(currentInv);
-        setBestValue(bestWeightedAverage);
+        setBestInvestment(currentInv)
+        setBestValue(bestWeightedAverage)
+        tempBestInvestment = currentInv
       } else if (bestWeightedAverage === totalRowWeightedAverage) {
+        setBestInvestment(tempBestInvestment + ', ' + currentInv)
+        tempBestInvestment = tempBestInvestment + ', ' + currentInv
       }
       //console.log("Valor total da linha->", totalRowWeightedAverage);
     });
