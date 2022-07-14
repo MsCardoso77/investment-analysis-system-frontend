@@ -2,9 +2,12 @@
 import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const handleCallbackResponse = async (response) => {
     const userObject = jwt_decode(response.credential);
     try {
@@ -16,6 +19,7 @@ const Login = () => {
       });
       console.log("data login result", result.data);
       sessionStorage.setItem("id_user", result.data?.id);
+      navigate("/");
     } catch (err) {
       console.log("login");
       const result = await axios.post("http://localhost:3333/user/login", {
@@ -25,6 +29,7 @@ const Login = () => {
       });
       console.log("data register result", result.data);
       sessionStorage.setItem("id_user", result.data?.id);
+      navigate("/");
     }
   };
 

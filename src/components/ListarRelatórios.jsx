@@ -1,28 +1,54 @@
-import React from 'react'
-import styles from './ListarRelatórios.module.css'
+import React, { useState, useEffect } from "react";
+import styles from "./ListarRelatórios.module.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ListarRelatórios = () => {
+  const [summaries, setSummaries] = useState([]);
 
   const navigate = useNavigate();
 
-  const teste = ["Relatório 1", "Relatório 2", "Relatório 3", 
-  "Relatório 4", "Relatório 5", "Relatório 6", "Relatório 7", "Relatório 8"]
+  useEffect(() => {
+    const id_user = sessionStorage.getItem("id_user");
+    axios
+      .get(`http://localhost:3333/summary/${id_user}`)
+      .then(({ data }) => setSummaries(data));
+  }, []);
+
+  const goToSummary = (summary) => [
+    navigate("/summary", {
+      state: {
+        tableResult: summary.table_data,
+        environment: summary.environment,
+      },
+    }),
+  ];
 
   return (
     <div className={styles.grid}>
-      {teste.map((summary, index) => {
+      {summaries?.map((summary, index) => {
+        console.log("summary", summary);
         return (
-          <div className={styles.summary}>{summary}</div>
-        )
-      } )}
+          <div
+            key={index}
+            className={styles.summary}
+            onClick={() => goToSummary(summary)}
+          >
+            {summary?.name || "Investimento"}
+          </div>
+        );
+      })}
 
-      <div className={styles.addSummary} onClick={() => {
-        navigate("/calculator")
-      }}>+</div>
-
+      <div
+        className={styles.addSummary}
+        onClick={() => {
+          navigate("/calculator");
+        }}
+      >
+        +
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ListarRelatórios
+export default ListarRelatórios;
