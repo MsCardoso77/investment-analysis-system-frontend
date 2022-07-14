@@ -10,7 +10,7 @@ const ListarRelatórios = () => {
 
   useEffect(() => {
     const id_user = sessionStorage.getItem("id_user");
-    if (!id_user) alert("Faça Login antes de entrar no Sistema");
+    if (!id_user) alert("Para ter acesso aos relatórios, é necessário realizar o login");
     axios
       .get(`http://localhost:3333/summary/${id_user}`)
       .then(({ data }) => setSummaries(data));

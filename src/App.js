@@ -12,13 +12,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="container">
+        <div className="appContainer">
           <Routes>
             <Route exact path="/" element={<><Navbar /><Home /></>} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/calculator" element={<><Navbar /><Calculator /></>} />
             {/* Should need to enter with an unique id */}
-            <Route exact path="/summary" element={<Summary />} />
+            <Route exact path="/summary" element={<><Navbar /><Summary /></>} />
           </Routes>
         </div>
         <Footer />

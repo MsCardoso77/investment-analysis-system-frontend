@@ -1,7 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  gap: 24px;
+}
+
 .navbarText {
+  font-size: 24px;
   color: #F9FAFB;
   text-align: center;
   margin: 0;
-  
+  text-decoration: none;
+  cursor: pointer;
+  padding-top: 8px;
 }
 
+.navbarText:hover {
+  color: #FDAE28;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #FDAE28;
+  text-decoration: none;
+}
+
+.title:hover {
+  color: #FDAE28;
+}
+
+span {
+  color: #F9FAFB;
+}
