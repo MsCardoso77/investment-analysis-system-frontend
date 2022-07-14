@@ -54,8 +54,6 @@ const MiniMax = ({data}) => {
         valuesToTranspose2.push(tempInvestment)
       });
     }
-
-    console.log("VALORES2->", valuesToTranspose2)
     
     //"destranspondo" a matriz com os novos valores
     for (let i = 0; i < data.length; i++) {
@@ -78,7 +76,6 @@ const MiniMax = ({data}) => {
           currentInv = investment.inv
         }
       })
-      console.log("MAIORES->", highestRowValue);
       if (miniMaxValue > highestRowValue){
         miniMaxValue = highestRowValue
         setBestInvestment(currentInv)
@@ -90,8 +87,6 @@ const MiniMax = ({data}) => {
       }
     })
 
-
-    console.log("MATRIZ C/ NOVOS VALORES", transposedMatrix2)
     //console.log('ARRAY ->', transposedMatrix);
   }, [data]);
 

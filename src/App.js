@@ -6,20 +6,19 @@ import Calculator from "./pages/Calculator/Calculator";
 import Home from "./pages/Home/Home";
 import Summary from "./pages/ShowSummary/ShowSummary";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar.jsx"
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Navbar /> */}
         <div className="container">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/calculator" element={<Calculator />} />
+            <Route exact path="/" element={<><Navbar /><Home /></>} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/calculator" element={<><Navbar /><Calculator /></>} />
             {/* Should need to enter with an unique id */}
-            <Route path="/summary" element={<Summary />} />
+            <Route exact path="/summary" element={<Summary />} />
           </Routes>
         </div>
         <Footer />

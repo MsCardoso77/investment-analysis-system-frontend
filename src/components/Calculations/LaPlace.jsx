@@ -22,7 +22,6 @@ const LaPlace = ({data}) => {
         setBestInvestment(currentInv)
         setBestValue(bestRowAverage)
         tempBestInvestment = currentInv
-        console.log('TEMP MELHORES',tempBestInvestment)
       } else if (bestRowAverage === totalRowValue/row.length) {
         setBestInvestment(tempBestInvestment + ', ' + currentInv)
         tempBestInvestment = tempBestInvestment + ', ' + currentInv      

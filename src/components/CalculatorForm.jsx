@@ -28,7 +28,6 @@ const CalculatorForm = ({
         className={styles.form}
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("onSubmit -> ", investmentSceneData);
           // need an id in future
           navigate("/summary", {
             state: { tableResult: investmentSceneData.current, environment },

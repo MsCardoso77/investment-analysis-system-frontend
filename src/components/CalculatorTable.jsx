@@ -10,12 +10,10 @@ const CalculatorTable = ({ scenarios, investments, investmentSceneData }) => {
     if (investments?.data && scenarios?.data) {
       const data = [];
       investments.data.map((inv, i) => {
-        console.log("inv ->", inv);
         if (inv) {
           const rows = [];
           scenarios.data.map((scene, j) => {
             if (scene) {
-              console.log("scene ->", scene);
               // Basically create a matrix that have all table field data, log data to have a clue
               rows.push({
                 _id_row: i + 1,
@@ -29,7 +27,6 @@ const CalculatorTable = ({ scenarios, investments, investmentSceneData }) => {
           data.push(rows);
         }
       });
-      console.log("data ->", data);
       setSceneInvestment(data);
       investmentSceneData.current = data;
     }
