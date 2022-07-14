@@ -10,6 +10,7 @@ const ListarRelatórios = () => {
 
   useEffect(() => {
     const id_user = sessionStorage.getItem("id_user");
+    if (!id_user) alert("Faça Login antes de entrar no Sistema");
     axios
       .get(`http://localhost:3333/summary/${id_user}`)
       .then(({ data }) => setSummaries(data));
